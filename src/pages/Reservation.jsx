@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/Reservation.css";
 
 export function Reservation() {
+  const [erroForm, setErroForm] = useState("")
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedSeat, setSelectedSeat] = useState("");
   const [imgMovie, setImgMovie] = useState("");
@@ -49,7 +50,7 @@ export function Reservation() {
 
   const handlerReserve = () => {
     if (!selectedSeat || !selectedTime || !name || !email) {
-      alert("Por favor, complete todos los campos.");
+      setErroForm("Porfavor, falta completar datos")
       return;
     }
     setSelectedSeat("");
@@ -59,7 +60,7 @@ export function Reservation() {
     setImgMovie("");
     setDescription("");
 
-    alert("Reserva realizada con éxito!");
+    etErroForm("No hay error")
   };
 
   return (
@@ -176,6 +177,7 @@ export function Reservation() {
             >
               RESERVAR
             </button>
+            <span data-testid="erroForm">{ erroForm != '' ? erroForm : 'No hay error' } </span>
           </div>
         </div>
       </div>
