@@ -60,7 +60,7 @@ export function Reservation() {
     setImgMovie("");
     setDescription("");
 
-    etErroForm("No hay error")
+    setErroForm("No hay error")
   };
 
   return (
